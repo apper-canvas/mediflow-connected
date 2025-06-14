@@ -8,15 +8,17 @@ import SkeletonLoader from '@/components/atoms/SkeletonLoader';
 import ErrorState from '@/components/molecules/ErrorState';
 import EmptyState from '@/components/molecules/EmptyState';
 import ApperIcon from '@/components/ApperIcon';
+import FileUpload from '@/components/organisms/FileUpload';
 import { patientService, userService } from '@/services';
 
 const Patients = () => {
   const [patients, setPatients] = useState([]);
   const [filteredPatients, setFilteredPatients] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+const [error, setError] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
-
+  const [showFileUpload, setShowFileUpload] = useState(false);
+  const [selectedPatient, setSelectedPatient] = useState(null);
   useEffect(() => {
     loadPatients();
   }, []);
@@ -88,8 +90,20 @@ const Patients = () => {
     toast.info(`Viewing details for ${patient.name}`);
   };
 
-  const handleEditPatient = (patient) => {
+const handleEditPatient = (patient) => {
     toast.info(`Editing ${patient.name}`);
+  };
+
+  const handleUploadFiles = (patient) => {
+    setSelectedPatient(patient);
+    setShowFileUpload(true);
+  };
+
+  const handleFileUploadSuccess = () => {
+    setShowFileUpload(false);
+    setSelectedPatient(null);
+    // Refresh the page to update report counts
+    loadPatients();
   };
 
   if (loading) {
@@ -170,6 +184,7 @@ const Patients = () => {
                 patient={patient}
                 onViewDetails={handleViewDetails}
                 onEditPatient={handleEditPatient}
+                onUploadFiles={handleUploadFiles}
               />
             </motion.div>
           ))}
@@ -187,6 +202,18 @@ const Patients = () => {
           <ApperIcon name="UserPlus" size={24} />
         </motion.button>
       </div>
+
+      {/* File Upload Modal */}
+      {showFileUpload && selectedPatient && (
+        <FileUpload
+          patientId={selectedPatient.userId}
+          onSuccess={handleFileUploadSuccess}
+          onClose={() => {
+            setShowFileUpload(false);
+            setSelectedPatient(null);
+          }}
+        />
+      )}
     </div>
   );
 };
