@@ -1,5 +1,5 @@
 import notificationsData from '@/services/mockData/notifications.json';
-import { appointmentService } from './appointmentService';
+import appointmentService from './appointmentService';
 import { format, isToday, isTomorrow, addDays } from 'date-fns';
 
 class NotificationService {
@@ -17,33 +17,38 @@ class NotificationService {
 
   async getNotifications() {
     return new Promise((resolve) => {
-      setTimeout(async () => {
-        // Get upcoming appointments for notifications
-        const appointments = await appointmentService.getAll();
-        const upcomingAppointments = appointments
-          .filter(apt => {
-            const aptDate = new Date(apt.date);
-            const now = new Date();
-            const daysDiff = Math.ceil((aptDate - now) / (1000 * 60 * 60 * 24));
-            return daysDiff >= 0 && daysDiff <= 7; // Next 7 days
-          })
-          .map(apt => ({
-            id: `apt-${apt.id}`,
-            type: 'appointment',
-            title: `Upcoming Appointment`,
-            message: `${apt.patientName} - ${apt.time}`,
-            time: apt.date,
-            read: false,
-            priority: isToday(new Date(apt.date)) ? 'high' : 'medium',
-            data: apt
-          }));
+setTimeout(async () => {
+        try {
+          // Get upcoming appointments for notifications
+          const appointments = await appointmentService.getAll();
+          const upcomingAppointments = appointments
+            .filter(apt => {
+              if (!apt?.dateTime) return false;
+              const aptDate = new Date(apt.dateTime);
+              const now = new Date();
+              const daysDiff = Math.ceil((aptDate - now) / (1000 * 60 * 60 * 24));
+              return daysDiff >= 0 && daysDiff <= 7; // Next 7 days
+            })
+            .map(apt => ({
+              id: `apt-${apt.id}`,
+              type: 'appointment',
+              title: `Upcoming Appointment`,
+              message: `${apt.patientName || 'Patient'} - ${format(new Date(apt.dateTime), 'h:mm a')}`,
+              time: apt.dateTime,
+              read: false,
+              priority: isToday(new Date(apt.dateTime)) ? 'high' : 'medium',
+              data: apt
+            }));
+const allNotifications = [
+            ...this.notifications,
+            ...upcomingAppointments
+          ].sort((a, b) => new Date(b.time) - new Date(a.time));
 
-        const allNotifications = [
-          ...this.notifications,
-          ...upcomingAppointments
-        ].sort((a, b) => new Date(b.time) - new Date(a.time));
-
-        resolve(allNotifications);
+          resolve(allNotifications);
+        } catch (error) {
+          console.error('Error fetching notifications:', error);
+          resolve([...this.notifications]);
+        }
       }, 300);
     });
   }
