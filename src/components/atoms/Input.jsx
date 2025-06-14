@@ -37,7 +37,7 @@ const Input = ({
           <div className="absolute left-3 top-1/2 transform -translate-y-1/2">
             <ApperIcon name={icon} size={16} className="text-surface-400" />
           </div>
-        )}
+)}
         
         <input
           type={type}
