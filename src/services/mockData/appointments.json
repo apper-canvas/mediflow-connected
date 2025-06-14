@@ -1,0 +1,74 @@
+[
+  {
+    "id": "1",
+    "patientId": "101",
+    "patientName": "John Smith",
+    "doctorId": "1",
+    "doctorName": "Dr. Sarah Johnson",
+    "specialization": "Cardiology",
+    "dateTime": "2024-12-23T09:00:00Z",
+    "status": "scheduled",
+    "reason": "Chest pain follow-up",
+    "notes": "Patient reports improvement in symptoms"
+  },
+  {
+    "id": "2",
+    "patientId": "102",
+    "patientName": "Maria Garcia",
+    "doctorId": "3",
+    "doctorName": "Dr. Emily Rodriguez",
+    "specialization": "Pediatrics",
+    "dateTime": "2024-12-23T10:00:00Z",
+    "status": "scheduled",
+    "reason": "Child wellness check",
+    "notes": "Regular checkup for 5-year-old"
+  },
+  {
+    "id": "3",
+    "patientId": "103",
+    "patientName": "Robert Davis",
+    "doctorId": "2",
+    "doctorName": "Dr. Michael Chen",
+    "specialization": "Orthopedics",
+    "dateTime": "2024-12-23T14:00:00Z",
+    "status": "scheduled",
+    "reason": "Knee injury consultation",
+    "notes": "Sports-related injury"
+  },
+  {
+    "id": "4",
+    "patientId": "104",
+    "patientName": "Linda Brown",
+    "doctorId": "4",
+    "doctorName": "Dr. James Wilson",
+    "specialization": "Dermatology",
+    "dateTime": "2024-12-24T11:00:00Z",
+    "status": "scheduled",
+    "reason": "Skin rash examination",
+    "notes": "Recurring rash on arms"
+  },
+  {
+    "id": "5",
+    "patientId": "105",
+    "patientName": "David Wilson",
+    "doctorId": "1",
+    "doctorName": "Dr. Sarah Johnson",
+    "specialization": "Cardiology",
+    "dateTime": "2024-12-22T15:00:00Z",
+    "status": "completed",
+    "reason": "Heart palpitations",
+    "notes": "ECG performed, results normal"
+  },
+  {
+    "id": "6",
+    "patientId": "101",
+    "patientName": "John Smith",
+    "doctorId": "2",
+    "doctorName": "Dr. Michael Chen",
+    "specialization": "Orthopedics",
+    "dateTime": "2024-12-21T10:00:00Z",
+    "status": "completed",
+    "reason": "Back pain assessment",
+    "notes": "Physical therapy recommended"
+  }
+]

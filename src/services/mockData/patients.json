@@ -1,0 +1,72 @@
+[
+  {
+    "userId": "101",
+    "name": "John Smith",
+    "email": "john.smith@email.com",
+    "phone": "+1-555-1001",
+    "dateOfBirth": "1985-03-15",
+    "bloodGroup": "A+",
+    "allergies": ["Penicillin", "Shellfish"],
+    "emergencyContact": {
+      "name": "Jane Smith",
+      "relationship": "Spouse",
+      "phone": "+1-555-1011"
+    }
+  },
+  {
+    "userId": "102",
+    "name": "Maria Garcia",
+    "email": "maria.garcia@email.com",
+    "phone": "+1-555-1002",
+    "dateOfBirth": "1990-07-22",
+    "bloodGroup": "O-",
+    "allergies": ["Latex"],
+    "emergencyContact": {
+      "name": "Carlos Garcia",
+      "relationship": "Husband",
+      "phone": "+1-555-1012"
+    }
+  },
+  {
+    "userId": "103",
+    "name": "Robert Davis",
+    "email": "robert.davis@email.com",
+    "phone": "+1-555-1003",
+    "dateOfBirth": "1978-11-08",
+    "bloodGroup": "B+",
+    "allergies": [],
+    "emergencyContact": {
+      "name": "Susan Davis",
+      "relationship": "Wife",
+      "phone": "+1-555-1013"
+    }
+  },
+  {
+    "userId": "104",
+    "name": "Linda Brown",
+    "email": "linda.brown@email.com",
+    "phone": "+1-555-1004",
+    "dateOfBirth": "1965-02-14",
+    "bloodGroup": "AB+",
+    "allergies": ["Aspirin", "Dust"],
+    "emergencyContact": {
+      "name": "Michael Brown",
+      "relationship": "Son",
+      "phone": "+1-555-1014"
+    }
+  },
+  {
+    "userId": "105",
+    "name": "David Wilson",
+    "email": "david.wilson@email.com",
+    "phone": "+1-555-1005",
+    "dateOfBirth": "1992-09-30",
+    "bloodGroup": "O+",
+    "allergies": ["Peanuts"],
+    "emergencyContact": {
+      "name": "Emma Wilson",
+      "relationship": "Sister",
+      "phone": "+1-555-1015"
+    }
+  }
+]

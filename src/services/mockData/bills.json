@@ -1,0 +1,142 @@
+[
+  {
+    "id": "1",
+    "patientId": "105",
+    "patientName": "David Wilson",
+    "appointmentId": "5",
+    "amount": 275.00,
+    "status": "paid",
+    "items": [
+      {
+        "description": "Consultation - Cardiology",
+        "quantity": 1,
+        "unitPrice": 150.00,
+        "total": 150.00
+      },
+      {
+        "description": "ECG Test",
+        "quantity": 1,
+        "unitPrice": 75.00,
+        "total": 75.00
+      },
+      {
+        "description": "Prescription Fee",
+        "quantity": 1,
+        "unitPrice": 25.00,
+        "total": 25.00
+      },
+      {
+        "description": "Administrative Fee",
+        "quantity": 1,
+        "unitPrice": 25.00,
+        "total": 25.00
+      }
+    ],
+    "createdAt": "2024-12-22T16:00:00Z",
+    "paidAt": "2024-12-22T18:30:00Z"
+  },
+  {
+    "id": "2",
+    "patientId": "101",
+    "patientName": "John Smith",
+    "appointmentId": "6",
+    "amount": 195.00,
+    "status": "pending",
+    "items": [
+      {
+        "description": "Consultation - Orthopedics",
+        "quantity": 1,
+        "unitPrice": 120.00,
+        "total": 120.00
+      },
+      {
+        "description": "X-Ray - Back",
+        "quantity": 1,
+        "unitPrice": 50.00,
+        "total": 50.00
+      },
+      {
+        "description": "Administrative Fee",
+        "quantity": 1,
+        "unitPrice": 25.00,
+        "total": 25.00
+      }
+    ],
+    "createdAt": "2024-12-21T11:00:00Z"
+  },
+  {
+    "id": "3",
+    "patientId": "102",
+    "patientName": "Maria Garcia",
+    "appointmentId": "2",
+    "amount": 125.00,
+    "status": "pending",
+    "items": [
+      {
+        "description": "Consultation - Pediatrics",
+        "quantity": 1,
+        "unitPrice": 100.00,
+        "total": 100.00
+      },
+      {
+        "description": "Administrative Fee",
+        "quantity": 1,
+        "unitPrice": 25.00,
+        "total": 25.00
+      }
+    ],
+    "createdAt": "2024-12-23T10:30:00Z"
+  },
+  {
+    "id": "4",
+    "patientId": "103",
+    "patientName": "Robert Davis",
+    "appointmentId": "3",
+    "amount": 145.00,
+    "status": "overdue",
+    "items": [
+      {
+        "description": "Consultation - Orthopedics",
+        "quantity": 1,
+        "unitPrice": 120.00,
+        "total": 120.00
+      },
+      {
+        "description": "Administrative Fee",
+        "quantity": 1,
+        "unitPrice": 25.00,
+        "total": 25.00
+      }
+    ],
+    "createdAt": "2024-12-20T14:30:00Z"
+  },
+  {
+    "id": "5",
+    "patientId": "104",
+    "patientName": "Linda Brown",
+    "appointmentId": "4",
+    "amount": 180.00,
+    "status": "pending",
+    "items": [
+      {
+        "description": "Consultation - Dermatology",
+        "quantity": 1,
+        "unitPrice": 130.00,
+        "total": 130.00
+      },
+      {
+        "description": "Skin Biopsy",
+        "quantity": 1,
+        "unitPrice": 25.00,
+        "total": 25.00
+      },
+      {
+        "description": "Administrative Fee",
+        "quantity": 1,
+        "unitPrice": 25.00,
+        "total": 25.00
+      }
+    ],
+    "createdAt": "2024-12-24T11:30:00Z"
+  }
+]

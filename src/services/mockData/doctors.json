@@ -1,0 +1,74 @@
+[
+  {
+    "userId": "1",
+    "name": "Dr. Sarah Johnson",
+    "email": "sarah.johnson@mediflow.com",
+    "phone": "+1-555-0101",
+    "specialization": "Cardiology",
+    "licenseNumber": "MD-2019-001",
+    "consultationFee": 150,
+    "availability": {
+      "monday": ["09:00", "10:00", "11:00", "14:00", "15:00", "16:00"],
+      "tuesday": ["09:00", "10:00", "11:00", "14:00", "15:00", "16:00"],
+      "wednesday": ["09:00", "10:00", "11:00", "14:00", "15:00", "16:00"],
+      "thursday": ["09:00", "10:00", "11:00", "14:00", "15:00", "16:00"],
+      "friday": ["09:00", "10:00", "11:00", "14:00", "15:00"],
+      "saturday": ["09:00", "10:00", "11:00"],
+      "sunday": []
+    }
+  },
+  {
+    "userId": "2",
+    "name": "Dr. Michael Chen",
+    "email": "michael.chen@mediflow.com",
+    "phone": "+1-555-0102",
+    "specialization": "Orthopedics",
+    "licenseNumber": "MD-2018-002",
+    "consultationFee": 120,
+    "availability": {
+      "monday": ["08:00", "09:00", "10:00", "13:00", "14:00", "15:00"],
+      "tuesday": ["08:00", "09:00", "10:00", "13:00", "14:00", "15:00"],
+      "wednesday": ["08:00", "09:00", "10:00", "13:00", "14:00", "15:00"],
+      "thursday": ["08:00", "09:00", "10:00", "13:00", "14:00", "15:00"],
+      "friday": ["08:00", "09:00", "10:00", "13:00", "14:00"],
+      "saturday": [],
+      "sunday": []
+    }
+  },
+  {
+    "userId": "3",
+    "name": "Dr. Emily Rodriguez",
+    "email": "emily.rodriguez@mediflow.com",
+    "phone": "+1-555-0103",
+    "specialization": "Pediatrics",
+    "licenseNumber": "MD-2020-003",
+    "consultationFee": 100,
+    "availability": {
+      "monday": ["10:00", "11:00", "12:00", "15:00", "16:00", "17:00"],
+      "tuesday": ["10:00", "11:00", "12:00", "15:00", "16:00", "17:00"],
+      "wednesday": ["10:00", "11:00", "12:00", "15:00", "16:00", "17:00"],
+      "thursday": ["10:00", "11:00", "12:00", "15:00", "16:00", "17:00"],
+      "friday": ["10:00", "11:00", "12:00", "15:00", "16:00"],
+      "saturday": ["10:00", "11:00", "12:00"],
+      "sunday": []
+    }
+  },
+  {
+    "userId": "4",
+    "name": "Dr. James Wilson",
+    "email": "james.wilson@mediflow.com",
+    "phone": "+1-555-0104",
+    "specialization": "Dermatology",
+    "licenseNumber": "MD-2017-004",
+    "consultationFee": 130,
+    "availability": {
+      "monday": ["09:30", "10:30", "11:30", "14:30", "15:30", "16:30"],
+      "tuesday": ["09:30", "10:30", "11:30", "14:30", "15:30", "16:30"],
+      "wednesday": ["09:30", "10:30", "11:30", "14:30", "15:30", "16:30"],
+      "thursday": ["09:30", "10:30", "11:30", "14:30", "15:30", "16:30"],
+      "friday": ["09:30", "10:30", "11:30", "14:30", "15:30"],
+      "saturday": [],
+      "sunday": []
+    }
+  }
+]

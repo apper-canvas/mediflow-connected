@@ -1,0 +1,73 @@
+[
+  {
+    "id": "1",
+    "appointmentId": "5",
+    "patientId": "105",
+    "patientName": "David Wilson",
+    "doctorId": "1",
+    "doctorName": "Dr. Sarah Johnson",
+    "medicines": [
+      {
+        "name": "Metoprolol",
+        "dosage": "25mg",
+        "frequency": "Twice daily",
+        "duration": "30 days",
+        "instructions": "Take with food"
+      },
+      {
+        "name": "Aspirin",
+        "dosage": "81mg",
+        "frequency": "Once daily",
+        "duration": "Ongoing",
+        "instructions": "Take in the morning"
+      }
+    ],
+    "instructions": "Monitor blood pressure daily. Return if symptoms worsen.",
+    "createdAt": "2024-12-22T15:30:00Z"
+  },
+  {
+    "id": "2",
+    "appointmentId": "6",
+    "patientId": "101",
+    "patientName": "John Smith",
+    "doctorId": "2",
+    "doctorName": "Dr. Michael Chen",
+    "medicines": [
+      {
+        "name": "Ibuprofen",
+        "dosage": "400mg",
+        "frequency": "Three times daily",
+        "duration": "7 days",
+        "instructions": "Take with meals"
+      },
+      {
+        "name": "Muscle relaxant",
+        "dosage": "10mg",
+        "frequency": "At bedtime",
+        "duration": "5 days",
+        "instructions": "May cause drowsiness"
+      }
+    ],
+    "instructions": "Continue physical therapy exercises. Apply ice packs as needed.",
+    "createdAt": "2024-12-21T10:45:00Z"
+  },
+  {
+    "id": "3",
+    "appointmentId": "1",
+    "patientId": "101",
+    "patientName": "John Smith",
+    "doctorId": "1",
+    "doctorName": "Dr. Sarah Johnson",
+    "medicines": [
+      {
+        "name": "Lisinopril",
+        "dosage": "10mg",
+        "frequency": "Once daily",
+        "duration": "30 days",
+        "instructions": "Take in the morning"
+      }
+    ],
+    "instructions": "Monitor for dry cough. Follow up in 2 weeks.",
+    "createdAt": "2024-12-20T09:15:00Z"
+  }
+]
