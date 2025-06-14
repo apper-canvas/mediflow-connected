@@ -3,6 +3,7 @@ import { Outlet, NavLink, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import ApperIcon from '@/components/ApperIcon';
 import { routeArray } from '@/config/routes';
+import NotificationDropdown from '@/components/organisms/NotificationDropdown';
 
 const Layout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -30,11 +31,8 @@ const Layout = () => {
             </div>
           </div>
           
-          <div className="flex items-center space-x-4">
-            <button className="p-2 rounded-md hover:bg-surface-100 transition-colors duration-200 relative">
-              <ApperIcon name="Bell" size={20} className="text-surface-600" />
-              <div className="absolute -top-1 -right-1 w-3 h-3 bg-error rounded-full"></div>
-            </button>
+<div className="flex items-center space-x-4">
+            <NotificationDropdown />
             <div className="flex items-center space-x-3">
               <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
                 <ApperIcon name="User" size={16} className="text-white" />

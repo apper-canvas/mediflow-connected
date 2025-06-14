@@ -1,0 +1,65 @@
+[
+  {
+    "id": "notif-1",
+    "type": "system",
+    "title": "System Update",
+    "message": "MediFlow has been updated to version 2.1.0 with new features and improvements.",
+    "time": "2024-01-15T09:00:00Z",
+    "read": false,
+    "priority": "low"
+  },
+  {
+    "id": "notif-2",
+    "type": "reminder",
+    "title": "Medication Reminder",
+    "message": "Time to review patient John Doe's prescription for Lisinopril.",
+    "time": "2024-01-15T14:30:00Z",
+    "read": false,
+    "priority": "high"
+  },
+  {
+    "id": "notif-3",
+    "type": "appointment",
+    "title": "Appointment Confirmation",
+    "message": "Sarah Wilson confirmed her appointment for tomorrow at 2:00 PM.",
+    "time": "2024-01-14T16:45:00Z",
+    "read": true,
+    "priority": "medium"
+  },
+  {
+    "id": "notif-4",
+    "type": "system",
+    "title": "Backup Completed",
+    "message": "Daily system backup completed successfully at 3:00 AM.",
+    "time": "2024-01-15T03:00:00Z",
+    "read": true,
+    "priority": "low"
+  },
+  {
+    "id": "notif-5",
+    "type": "reminder",
+    "title": "Lab Results",
+    "message": "Lab results are ready for patient Maria Garcia. Please review when convenient.",
+    "time": "2024-01-15T11:20:00Z",
+    "read": false,
+    "priority": "medium"
+  },
+  {
+    "id": "notif-6",
+    "type": "appointment",
+    "title": "New Appointment Request",
+    "message": "David Chen has requested an appointment for next week.",
+    "time": "2024-01-14T13:15:00Z",
+    "read": true,
+    "priority": "medium"
+  },
+  {
+    "id": "notif-7",
+    "type": "system",
+    "title": "Maintenance Window",
+    "message": "Scheduled maintenance will occur tonight from 11 PM to 1 AM.",
+    "time": "2024-01-14T10:00:00Z",
+    "read": false,
+    "priority": "high"
+  }
+]
