@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { toast } from 'react-toastify';
 import DoctorCard from '@/components/organisms/DoctorCard';
+import DoctorFormModal from '@/components/organisms/DoctorFormModal';
 import SearchBar from '@/components/molecules/SearchBar';
 import Button from '@/components/atoms/Button';
 import SkeletonLoader from '@/components/atoms/SkeletonLoader';
@@ -194,8 +195,15 @@ actionLabel={searchQuery ? undefined : "Add Doctor"}
           onClick={handleAddDoctor}
         >
           <ApperIcon name="UserPlus" size={24} />
-        </motion.button>
+</motion.button>
       </div>
+
+      {/* Add Doctor Modal */}
+      <DoctorFormModal
+        isOpen={showAddModal}
+        onClose={() => setShowAddModal(false)}
+        onSuccess={handleAddDoctorSuccess}
+      />
     </div>
   );
 };
