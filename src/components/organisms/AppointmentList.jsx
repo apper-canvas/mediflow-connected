@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { format } from 'date-fns';
+import { format, isValid } from 'date-fns';
 import { toast } from 'react-toastify';
 import ApperIcon from '@/components/ApperIcon';
 import Button from '@/components/atoms/Button';
@@ -9,6 +9,19 @@ import SkeletonLoader from '@/components/atoms/SkeletonLoader';
 import ErrorState from '@/components/molecules/ErrorState';
 import EmptyState from '@/components/molecules/EmptyState';
 import { appointmentService } from '@/services';
+
+// Helper function to safely format dates
+const formatDateSafely = (dateValue, formatString, fallback = 'Invalid date') => {
+  try {
+    if (!dateValue) return fallback;
+    const date = typeof dateValue === 'string' ? new Date(dateValue) : dateValue;
+    if (!isValid(date)) return fallback;
+    return format(date, formatString);
+  } catch (error) {
+    console.warn('Date formatting error:', error);
+    return fallback;
+  }
+};
 
 const AppointmentList = ({ selectedDate, onAppointmentUpdate }) => {
   const [appointments, setAppointments] = useState([]);
@@ -93,13 +106,13 @@ const AppointmentList = ({ selectedDate, onAppointmentUpdate }) => {
     );
   }
 
-  if (appointments.length === 0) {
+if (appointments.length === 0) {
     return (
       <EmptyState 
         icon="Calendar"
         title="No appointments found"
         description={selectedDate 
-          ? `No appointments scheduled for ${format(selectedDate, 'MMMM d, yyyy')}`
+          ? `No appointments scheduled for ${formatDateSafely(selectedDate, 'MMMM d, yyyy', 'selected date')}`
           : "No appointments scheduled"
         }
         actionLabel="Schedule Appointment"
@@ -108,12 +121,12 @@ const AppointmentList = ({ selectedDate, onAppointmentUpdate }) => {
     );
   }
 
-  return (
+return (
     <div className="space-y-4">
       <div className="flex items-center justify-between">
         <h3 className="text-lg font-semibold text-surface-900">
           {selectedDate 
-            ? `Appointments for ${format(selectedDate, 'MMMM d, yyyy')}`
+            ? `Appointments for ${formatDateSafely(selectedDate, 'MMMM d, yyyy', 'selected date')}`
             : 'All Appointments'
           }
         </h3>
@@ -142,14 +155,14 @@ const AppointmentList = ({ selectedDate, onAppointmentUpdate }) => {
                 </div>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                 <div className="flex items-center text-sm text-surface-600">
                   <ApperIcon name="Clock" size={16} className="mr-2" />
-                  {format(new Date(appointment.dateTime), 'h:mm a')}
+                  {formatDateSafely(appointment.dateTime, 'h:mm a', 'Time unavailable')}
                 </div>
                 <div className="flex items-center text-sm text-surface-600">
                   <ApperIcon name="Stethoscope" size={16} className="mr-2" />
-                  {appointment.specialization}
+                  {appointment.specialization || 'General'}
                 </div>
                 <div className="flex items-center text-sm text-surface-600">
                   <ApperIcon name="FileText" size={16} className="mr-2" />
