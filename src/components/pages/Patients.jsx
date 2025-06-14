@@ -9,6 +9,7 @@ import ErrorState from '@/components/molecules/ErrorState';
 import EmptyState from '@/components/molecules/EmptyState';
 import ApperIcon from '@/components/ApperIcon';
 import FileUpload from '@/components/organisms/FileUpload';
+import PatientFormModal from '@/components/organisms/PatientFormModal';
 import { patientService, userService } from '@/services';
 
 const Patients = () => {
@@ -19,6 +20,7 @@ const [error, setError] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [showFileUpload, setShowFileUpload] = useState(false);
   const [selectedPatient, setSelectedPatient] = useState(null);
+  const [showAddModal, setShowAddModal] = useState(false);
   useEffect(() => {
     loadPatients();
   }, []);
@@ -102,10 +104,17 @@ const handleEditPatient = (patient) => {
   const handleFileUploadSuccess = () => {
     setShowFileUpload(false);
     setSelectedPatient(null);
-    // Refresh the page to update report counts
+// Refresh the page to update report counts
     loadPatients();
   };
 
+  const handleAddPatient = () => {
+    setShowAddModal(true);
+  };
+
+  const handleAddPatientSuccess = () => {
+    loadPatients();
+  };
   if (loading) {
     return (
       <div className="space-y-6">
@@ -145,7 +154,7 @@ const handleEditPatient = (patient) => {
           <p className="text-surface-600 mt-1">Manage patient records and information</p>
         </div>
         
-        <Button variant="primary">
+<Button variant="primary" onClick={handleAddPatient}>
           <ApperIcon name="UserPlus" size={16} className="mr-2" />
           Add Patient
         </Button>
@@ -168,8 +177,8 @@ const handleEditPatient = (patient) => {
             ? `No patients match "${searchQuery}"`
             : "Start by registering your first patient"
           }
-          actionLabel={searchQuery ? undefined : "Add Patient"}
-          onAction={searchQuery ? undefined : () => toast.info('Add patient clicked')}
+actionLabel={searchQuery ? undefined : "Add Patient"}
+          onAction={searchQuery ? undefined : handleAddPatient}
         />
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -193,11 +202,11 @@ const handleEditPatient = (patient) => {
 
       {/* Floating Action Button (Mobile) */}
       <div className="fixed bottom-6 right-6 md:hidden">
-        <motion.button
+<motion.button
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           className="w-14 h-14 bg-primary text-white rounded-full shadow-lg flex items-center justify-center"
-          onClick={() => toast.info('Add patient clicked')}
+          onClick={handleAddPatient}
         >
           <ApperIcon name="UserPlus" size={24} />
         </motion.button>
@@ -208,14 +217,20 @@ const handleEditPatient = (patient) => {
         <FileUpload
           patientId={selectedPatient.userId}
           onSuccess={handleFileUploadSuccess}
-          onClose={() => {
+onClose={() => {
             setShowFileUpload(false);
             setSelectedPatient(null);
           }}
         />
       )}
+
+      {/* Add Patient Modal */}
+      <PatientFormModal
+        isOpen={showAddModal}
+        onClose={() => setShowAddModal(false)}
+        onSuccess={handleAddPatientSuccess}
+      />
     </div>
-  );
 };
 
 export default Patients;
