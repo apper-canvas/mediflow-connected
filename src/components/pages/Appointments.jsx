@@ -2,16 +2,26 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import AppointmentCalendar from '@/components/organisms/AppointmentCalendar';
 import AppointmentList from '@/components/organisms/AppointmentList';
+import NewAppointmentModal from '@/components/organisms/NewAppointmentModal';
 import Button from '@/components/atoms/Button';
 import ApperIcon from '@/components/ApperIcon';
-
 const Appointments = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [viewMode, setViewMode] = useState('calendar'); // 'calendar' or 'list'
   const [refreshTrigger, setRefreshTrigger] = useState(0);
+  const [showNewAppointmentModal, setShowNewAppointmentModal] = useState(false);
 
   const handleAppointmentUpdate = () => {
     setRefreshTrigger(prev => prev + 1);
+  };
+
+  const handleNewAppointment = () => {
+    setShowNewAppointmentModal(true);
+  };
+
+  const handleAppointmentCreated = () => {
+    setShowNewAppointmentModal(false);
+    handleAppointmentUpdate();
   };
 
   return (
@@ -48,8 +58,7 @@ const Appointments = () => {
               List
             </button>
           </div>
-          
-          <Button variant="primary">
+<Button variant="primary" onClick={handleNewAppointment}>
             <ApperIcon name="Plus" size={16} className="mr-2" />
             New Appointment
           </Button>
@@ -93,15 +102,24 @@ const Appointments = () => {
       </motion.div>
 
       {/* Floating Action Button (Mobile) */}
-      <div className="fixed bottom-6 right-6 md:hidden">
+<div className="fixed bottom-6 right-6 md:hidden">
         <motion.button
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
+          onClick={handleNewAppointment}
           className="w-14 h-14 bg-primary text-white rounded-full shadow-lg flex items-center justify-center"
         >
           <ApperIcon name="Plus" size={24} />
         </motion.button>
       </div>
+
+      {/* New Appointment Modal */}
+      <NewAppointmentModal
+        isOpen={showNewAppointmentModal}
+        onClose={() => setShowNewAppointmentModal(false)}
+        onSuccess={handleAppointmentCreated}
+        preselectedDate={selectedDate}
+      />
     </div>
   );
 };
