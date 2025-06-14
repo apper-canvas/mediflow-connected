@@ -32,13 +32,14 @@ const Input = ({
         </label>
       )}
       
-      <div className="relative">
+<div className="relative">
         {icon && (
           <div className="absolute left-3 top-1/2 transform -translate-y-1/2">
             <ApperIcon name={icon} size={16} className="text-surface-400" />
           </div>
-)}
+        )}
         
+        {/* Input element - MUST remain self-closing (void element) */}
         <input
           type={type}
           placeholder={focused ? placeholder : ''}
