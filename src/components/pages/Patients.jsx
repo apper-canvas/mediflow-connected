@@ -227,10 +227,11 @@ onClose={() => {
       {/* Add Patient Modal */}
       <PatientFormModal
         isOpen={showAddModal}
-        onClose={() => setShowAddModal(false)}
+onClose={() => setShowAddModal(false)}
         onSuccess={handleAddPatientSuccess}
       />
     </div>
+  );
 };
 
 export default Patients;
