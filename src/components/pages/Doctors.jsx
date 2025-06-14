@@ -16,7 +16,7 @@ const Doctors = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
-
+  const [showAddModal, setShowAddModal] = useState(false);
   useEffect(() => {
     loadDoctors();
   }, []);
@@ -84,6 +84,16 @@ const Doctors = () => {
     }
   };
 
+const handleAddDoctor = () => {
+    setShowAddModal(true);
+  };
+
+  const handleAddDoctorSuccess = () => {
+    setShowAddModal(false);
+    loadDoctors();
+    toast.success('Doctor added successfully');
+  };
+
   const handleViewProfile = (doctor) => {
     toast.info(`Viewing profile for ${doctor.name}`);
   };
@@ -91,7 +101,6 @@ const Doctors = () => {
   const handleManageSchedule = (doctor) => {
     toast.info(`Managing schedule for ${doctor.name}`);
   };
-
   if (loading) {
     return (
       <div className="space-y-6">
@@ -131,7 +140,7 @@ const Doctors = () => {
           <p className="text-surface-600 mt-1">Manage doctor profiles and schedules</p>
         </div>
         
-        <Button variant="primary">
+<Button variant="primary" onClick={handleAddDoctor}>
           <ApperIcon name="UserPlus" size={16} className="mr-2" />
           Add Doctor
         </Button>
@@ -154,8 +163,8 @@ const Doctors = () => {
             ? `No doctors match "${searchQuery}"`
             : "Start by adding your first doctor"
           }
-          actionLabel={searchQuery ? undefined : "Add Doctor"}
-          onAction={searchQuery ? undefined : () => toast.info('Add doctor clicked')}
+actionLabel={searchQuery ? undefined : "Add Doctor"}
+          onAction={searchQuery ? undefined : handleAddDoctor}
         />
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -177,12 +186,12 @@ const Doctors = () => {
       )}
 
       {/* Floating Action Button (Mobile) */}
-      <div className="fixed bottom-6 right-6 md:hidden">
+<div className="fixed bottom-6 right-6 md:hidden">
         <motion.button
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           className="w-14 h-14 bg-primary text-white rounded-full shadow-lg flex items-center justify-center"
-          onClick={() => toast.info('Add doctor clicked')}
+          onClick={handleAddDoctor}
         >
           <ApperIcon name="UserPlus" size={24} />
         </motion.button>
