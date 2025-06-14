@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion';
-import { calculateAge } from 'date-fns';
+import { differenceInYears } from 'date-fns';
 import ApperIcon from '@/components/ApperIcon';
 import Badge from '@/components/atoms/Badge';
 import Button from '@/components/atoms/Button';
 
 const PatientCard = ({ patient, onViewDetails, onEditPatient }) => {
-  const age = calculateAge(new Date(patient.dateOfBirth), new Date());
+  const age = differenceInYears(new Date(), new Date(patient.dateOfBirth));
 
   return (
     <motion.div
